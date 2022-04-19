@@ -1,0 +1,37 @@
+{
+  "query": "asian_hates",
+  "number_of_results": 0,
+  "results": [
+    {
+      "url": "https://www.msn.com/en-ca/news/canada/man-gets-conditional-discharge-for-assault-of-92-year-old-asian-man-in-vancouver/ar-AAVkUUe",
+      "title": "Man gets conditional discharge for assault of 92-year-old Asian man in Vancouver",
+      "publishedDate": "12 \u5c0f\u65f6 8 \u5206\u949f\u524d",
+      "content": "Jamie Bezanson pleaded guilty to one charge of assault in relation to the disturbing March 13, 2020 incident involving a 92-year-old man with severe dementia.",
+      "img_src": "http://www.bing.com/th?id=OVFT.pn8z5lOSWjy3Bd0MNT-pfi&pid=News",
+      "engine": "bing news",
+      "parsed_url": [
+        "https",
+        "www.msn.com",
+        "/en-ca/news/canada/man-gets-conditional-discharge-for-assault-of-92-year-old-asian-man-in-vancouver/ar-AAVkUUe",
+        "",
+        "",
+        ""
+      ],
+      "engines": [
+        "bing news"
+      ],
+      "positions": [
+        5
+      ],
+      "score": 0.2,
+      "category": "news",
+      "pretty_url": "https://www.msn.com/en-ca/news/canada/[...]-old-asian-man-in-vancouver/ar-AAVkUUe",
+      "pubdate": "2022-03-21 13:36:43+0000"
+    }
+  ],
+  "answers": [],
+  "corrections": [],
+  "infoboxes": [],
+  "suggestions": [],
+  "unresponsive_engines": []
+}
