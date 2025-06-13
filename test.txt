@@ -1,0 +1,147 @@
+Detailed Steps
+
+1、Decide Your Application Type
+
+The application type corresponds to the seller’s collaboration model with SHEIN. There are multiple types of applications available, each with specific definitions and impacts. Refer to the detailed descriptions below.
+
+Choose the application type based on your developer qualification:
+
+Seller Self-Developed Developer: Select the application type based on the seller’s collaboration model with SHEIN. If the seller operates multiple models, you can create multiple applications, each corresponding to a specific model. For example, if the seller is involved in both SHEIN-owned operations and self-operated models, create two applications, one for each model.
+Third-Party Software Vendor (ISV): Choose the application type based on the seller types you want to support. If you wish to serve sellers across multiple models, you can create multiple applications, with each application linked to a specific model.
+Platform-Invited Developer: Select the application type based on the outcomes of your business discussions with SHEIN.
+Collaboration Model	Description
+Self-Operated	Sellers join the platform and independently manage all aspects of their store, including product selection, operations, fulfillment, shipping, and after-sales service.
+Agency Operation	Sellers are responsible for providing goods, including product recommendations, photography, and stocking inventory at SHEIN warehouses. SHEIN handles marketing and fulfillment.
+Semi-Managed	Sellers stock inventory locally overseas and manage fulfillment and shipping to consumers directly. SHEIN assists with store operations.
+SHEIN-Owned	Typically for OEM and ODM sellers. Sellers only provide goods, while SHEIN takes care of product selection, procurement, operations, fulfillment, shipping, and after-sales service.
+
+
+2、Create Application and Submit Information
+
+Developers can only create applications after their qualification has been approved. You can create your application via the Console - Application Management section.
+
+When submitting application information, please carefully verify all details, as the application name, icon, and description will be visible to sellers. Once the application is submitted for review, changes cannot be made independently. To make any modifications, you will need to contact the platform.
+
+3、Complete Application Review
+
+The review time varies depending on the application type. You will be notified of the results via SMS or email. For any special cases, please contact the platform through the support ticket system.
+
+⚠️Note: During the review process, your application is not active, and you will not receive a valid App ID or App Secret. Therefore, you will not be able to use the API during this time.
+
+
+Step 3: Test the Application
+Before testing your application, ensure that the following actions are completed:
+
+1、Identify the APIs and Webhooks needed based on your use case.
+
+2、Subscribe to the required APIs to gain access to the interfaces.
+
+3、Subscribe to the necessary Webhooks to receive event notifications.
+
+
+
+During the application testing phase, focus on the following:
+
+1、Test the application authorization process.
+
+2、Verify the signature rules.
+
+3、Call the interfaces to validate business logic.
+
+⚠️Reminder:
+
+The platform will provide test environment stores to assist you with testing. Once the application review is approved, you can see the store key information in the console. If you need account information to log into the store backend, please contact the email openapi@shein.com or submit a ticket to request it.
+
+
+Before Testing the Application
+
+1、How to Determine Which APIs and Webhooks You Need
+
+Refer to the Documentation Center - Solutions to find answers to questions like “Which interfaces are needed for a specific scenario?” and “How to call the APIs between each other.”
+
+Pay attention to the collaboration models marked in the solutions, as the solutions may differ for the same scenario based on the model used.
+
+
+2、Subscribe to the APIs You Need
+
+The range of APIs available to your application depends on the application type. You can view the list of available APIs in the Console - Application Management - Application Details - API Permission Package section. Most permission packages will be automatically subscribed to after the application review is approved.
+
+Exceptional Cases:
+
+   - If you find an API in the list that is not marked as subscribed, click on “Apply for Permission Package.” You will gain access once the platform reviews and approves the request.
+
+   - If the API you need is not listed, please contact the platform through a support ticket.
+
+3、Subscribe to the Webhooks You Need
+
+The range of Webhooks available to your application depends on the application type. You can view the list of available Webhooks in the Console - Application Management - Application Details - Webhook Settings section.
+
+Subscribing to Webhooks involves two steps:
+
+  - Activate Webhook Subscription: You need to actively enable the Webhook message subscription.
+
+  - Provide a Valid Callback URL: You must provide a valid callback URL where SHEIN will send the messages you subscribed to. The callback URL must be distinct for testing and production environments. After submission, the platform will review it, and once approved, it will become active. Click here to view the Webhook integration documentation.
+
+
+Application Testing Key Points
+
+1、Test the Authorization Process
+
+Your application needs to obtain authorization from the seller to access their data, making authorization a crucial step. You can find field explanations and code examples for the authorization process here.
+
+There are two key points in the authorization process:
+
+Construct the authorization link to obtain the tempToken
+Use the tempToken to obtain the openKeyId.
+However, during application testing, since you do not have access to a seller’s store, you cannot fully test the process.
+
+You can use the authorization testing tool provided by the platform, which simulates an application and store to help you obtain the tempToken. With this, you can test the process of exchanging the tempToken for an openKeyId.
+
+⚠️Note:
+
+The test environment authorization link uses the following domain:  https://openapi-test01.sheincorp.cn/#/empower
+When calling the /open-api/auth/get-by-token interface to generate a signature, use the APP_ID and APP_secretKey of your application for the openKeyId and secretKey.
+
+2、Verify the Signature Rules
+
+All API calls require a signed request parameter, and incorrect signatures will result in failed calls. Therefore, it is essential to verify that the signature rules are correct.
+
+You can use the signature calculation tool on the signature rules page to verify the correctness of the signature.Click here to view the detailed explanation of the signature rules.
+
+3、Call Interfaces to Verify Business Logic
+
+During the application testing phase, use the test stores provided by the platform to verify the business logic of your API calls.
+
+For your application type, the platform provides corresponding store information. You can use the store’s openKeyId and secretKey to make API calls. If you need access to the seller backend of the test store, please submit a support ticket to contact the platform.
+
+⚠️Note: For the test environment, use the following domain to make API calls: https://openapi-test01.sheincorp.cn
+
+
+Step 4: Preparation for Launch
+Before your application is officially made available to sellers, please ensure the following actions are completed:
+
+1、Your IP address has been added to the whitelist
+
+2、The Webhook callback URL for the production environment has been approved.
+
+3、The API call domain has been switched to the production domain.
+
+
+1、IP Address Added to the Whitelist
+
+You must add the IP address of your application service to the IP whitelist before you can make API calls to the production environment.
+2、Webhook Callback URL Approved for Production
+
+If you have subscribed to Webhooks, make sure the callback URL for the production environment is configured and has been approved. Otherwise, you will not receive messages from authorized sellers. The approval process may take some time, so please plan accordingly.
+
+3、Switch API Call Domain to the Production Domain
+
+Make sure to switch your API call domain to the production domain for live operations.
+
+The domain used for API calls in the production environment
+Self-Operated / Semi-Managed	Agency Operation / SHEIN-Owned / Other
+https://openapi.sheincorp.com	https://openapi.sheincorp.cn
+
+
+Step 5: Reach Out to Sellers for Application Authorization
+Once your application has completed the four steps above, you can reach out to sellers through your own channels and provide them with the application authorization link. Sellers can log in to their SHEIN seller account through the link and grant authorization. After the seller authorizes, the application can access the seller’s business data via the API.
